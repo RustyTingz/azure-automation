@@ -1,0 +1,15 @@
+{{ ansible_managed | comment }}
+
+{% for resource_group in azure_resouce_groups %}
+ resource "azurerm_resource_group" "{{ resource_group.name }}" {
+     name     = "{{ resource_group.name }}"
+     location = "{{ resource_group.location }}"
+ 
+     tags {
+         name = "{{ resource_group.name }}"
+     {%  for key, value in resource_labels.items() %}
+         {{ key }} = "{{ value }}"
+     {% endfor %}
+     }
+ }
+{% endfor %}

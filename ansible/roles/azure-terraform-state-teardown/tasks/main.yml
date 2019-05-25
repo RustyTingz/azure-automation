@@ -1,0 +1,7 @@
+---
+- name: "Create resource_group"
+  azure_rm_resourcegroup:
+    name: "{{ azure_tfstate_storage.resource_group }}"
+    location: "{{ azure_tfstate_storage.location }}"
+    force_delete_nonempty: true
+    state: "{{ state | default('present')}}"

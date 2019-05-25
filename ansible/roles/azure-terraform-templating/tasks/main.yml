@@ -1,0 +1,12 @@
+---
+- name: "Generate Terraform Azure Resource Groups"
+  template:
+    src: templates/terraform-resource-groups.tf.j2
+    dest: ../terraform/resource-groups.tf
+  delegate_to: localhost
+  
+- name: "Generate Terraform Azure CosmosDb"
+  template:
+    src: templates/terraform-cosmosdb.tf.j2
+    dest: ../terraform/cosmosdb.tf
+  delegate_to: localhost

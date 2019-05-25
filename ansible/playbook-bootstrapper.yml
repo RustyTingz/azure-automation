@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+    it_should_create_gcp_project: false
+
+  roles:
+    - azure-terraform-state-bootstrapper
+    - azure-terraform-templating

@@ -1,0 +1,9 @@
+{{ ansible_managed | comment }}
+terraform {
+  backend "azurerm" {
+    storage_account_name = "{{ azure_tfstate_storage.account_name }}"
+    resource_group_name = "{{ azure_tfstate_storage.resource_group }}"
+    container_name       = "{{ azure_tfstate_storage.container_name }}"
+    key                  = "{{ azure_tfstate_storage.blob_name }}.terraform.tfstate"
+  }
+}

@@ -1,0 +1,18 @@
+name: azure-infrastructure
+title: Azure Infrastructure InSpec Profile
+summary: An InSpec Compliance Profile For Azure Infrastructure
+version: 0.1.0
+inspec_version: '>=3.3.14'
+depends:
+- name: inspec-azure
+  url: https://github.com/MRushtonScratch/inspec-azure/archive/1.3.2.zip
+supports:
+- platform: azure
+attributes:
+  - name: azure_tfstate_storage
+    type: hash
+    required: true
+  - name: azure_cosmosdb
+    type: hash
+    required: true
+  

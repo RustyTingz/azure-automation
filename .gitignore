@@ -1,0 +1,29 @@
+#IDE
+.DS_Store
+.idea/
+.venv/
+.vscode/
+
+# InSpec
+inspec.lock
+
+# Ansible
+.kitchen/
+ansible/*.log
+ansible/platform-attributes.yml
+
+# Terraform
+.terraform/
+terraform-plan
+*.retry
+*.backup
+errored.tfstate
+
+# Ansible / Terraform Genereated content
+terraform-config.tf
+*.tfvars
+
+# Docker
+.latest-docker-image-id
+
+.envrc 

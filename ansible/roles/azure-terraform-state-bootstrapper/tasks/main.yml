@@ -1,0 +1,25 @@
+---
+- name: "Create resource_group"
+  azure_rm_resourcegroup:
+    name: "{{ azure_tfstate_storage.resource_group }}"
+    location: "{{ azure_tfstate_storage.location }}"
+    state: present
+
+- name: "Create Azure Storage Account for Terraform state"
+  azure_rm_storageaccount:
+    resource_group: "{{ azure_tfstate_storage.resource_group }}"
+    name: "{{ azure_tfstate_storage.account_name }}"
+    location: "{{ azure_tfstate_storage.location }}"
+    type: Standard_LRS
+
+- name: Create Azure Storage Account container
+  azure_rm_storageblob:
+    resource_group: "{{ azure_tfstate_storage.resource_group }}"
+    storage_account_name: "{{ azure_tfstate_storage.account_name }}"
+    container: "{{ azure_tfstate_storage.container_name }}"
+
+- name: "Generate Terraform State resource"
+  template:
+    src: templates/terraform-config.tf.j2
+    dest: ../terraform/terraform-config.tf
+  delegate_to: localhost

@@ -1,0 +1,19 @@
+---
+azure_tfstate_storage:
+  account_name: tfstateinttest
+  resource_group: ci-integration-test-rg
+  container_name: tfstate
+  blob_name: integration.testing
+  location: UK South
+azure_resouce_groups:
+  - name: data-store-rg
+    location: UK South
+azure_cosmosdb:
+  name: cosmosdb-integration-test
+  resource_group: data-store-rg
+  location: UK South
+resource_labels:
+  environment: staging
+  context: integration-testing
+  team: platform-engineering
+  managedBy: terraform
