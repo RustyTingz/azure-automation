@@ -7,8 +7,6 @@ The automation within this repository can:
 - Create a terraform state configuration terraform-config.tf that uses Azure and a prefix to ensure that the state does not conflict with other modules outside this repository
 - Create CosmosDb terraform resources using ansible templating and associated resource group using the provided variables file `./src/attributes.yml`
 
-## Team: Beagles
-
 ## Requirements
 
 - Pipenv `>=2018.11.26`
